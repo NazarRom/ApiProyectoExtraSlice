@@ -32,10 +32,18 @@ namespace ApiProyectoExtraSlice.Controllers
         //no sé si furula
         [HttpGet]
         [Route("[action]/{ids}")]
-        public async Task<ActionResult<List<Producto>>> GetProductosFromSession(List<int> ids)
+        public async Task<ActionResult<List<Producto>>> GetProductosFromSession([FromRoute] List<int> ids)
         {
             return await this.repo.GetProductosSessionAsync(ids);
         }
+
+        //[HttpGet]
+        //[Route("[action]")]
+        //public async Task<ActionResult<List<Producto>>> GetProductosFromSession([FromQuery(Name = "ids")] string ids)
+        //{
+        //    var idList = ids.Split(',').Select(int.Parse).ToList();
+        //    return await this.repo.GetProductosSessionAsync(idList);
+        //}
 
         //para recuperar la lista de los productos de un restaurante
         [HttpGet]
