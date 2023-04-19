@@ -30,9 +30,9 @@ namespace ApiProyectoExtraSlice.Controllers
         }
 
         //no sé si furula
-        [HttpGet]
-        [Route("[action]/{ids}")]
-        public async Task<ActionResult<List<Producto>>> GetProductosFromSession([FromRoute] List<int> ids)
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<ActionResult<List<Producto>>> GetProductosFromSession(List<int> ids)
         {
             return await this.repo.GetProductosSessionAsync(ids);
         }
