@@ -94,14 +94,14 @@ namespace ApiProyectoExtraSlice.Controllers
             return await this.repo.FindUsuarioAsync(id);
         }
 
-        //crearPedido
-        [HttpPost]
-        [Route("[action]/{id}")]
-        public async Task<ActionResult> CrearPedido(int id)
-        {
-            await this.repo.CrearPedidoAsync(id);
-            return Ok();
-        }
+        ////crearPedido
+        //[HttpPost]
+        //[Route("[action]")]
+        //public async Task<ActionResult> CrearPedido(Usuario usuario)
+        //{
+        //    await this.repo.CrearPedidoAsync(usuario.IdUser);
+        //    return Ok();
+        //}
 
         //finalizar pedido
         [HttpPost]
