@@ -74,7 +74,6 @@ namespace ApiProyectoExtraSlice.Repository
         public async Task RegisterUserAsync(string nombre, string direccion, string telefono, string email, string pass)
         {
 
-
             Usuario user = new Usuario();
             user.IdUser = this.GetMaxIdusuario();
             user.Nombre_cliente = nombre;

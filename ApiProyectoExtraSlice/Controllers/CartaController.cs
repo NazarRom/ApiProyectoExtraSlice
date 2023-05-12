@@ -16,15 +16,6 @@ namespace ApiProyectoExtraSlice.Controllers
         {
             this.repo = repo;
         }
-       
-
-        
-
-       
-
-       
-
-        
 
         //finalizar pedido
         [HttpPost]
@@ -43,7 +34,6 @@ namespace ApiProyectoExtraSlice.Controllers
         {
             return await this.repo.GetAllCategoriasAsync();
         }
-
-        
+      
     }
 }

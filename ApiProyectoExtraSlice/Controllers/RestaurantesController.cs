@@ -27,7 +27,7 @@ namespace ApiProyectoExtraSlice.Controllers
         //para encontrar un restaurante en concreto
         [HttpGet]
         [Route("[action]/{id}")]
-        public async Task<ActionResult<Restaurante>> GetResuartente(int id)
+        public async Task<ActionResult<Restaurante>> GetOneResuartente(int id)
         {
             return await this.repo.FindRestauranteAsync(id);
         }
@@ -35,7 +35,7 @@ namespace ApiProyectoExtraSlice.Controllers
         //Restaurantes por categoria///////////////////////////////////////////////
         [HttpGet]
         [Route("[action]/{id}")]
-        public async Task<ActionResult<List<Restaurante>>> FindRestaurantesByCategoría(int id)
+        public async Task<ActionResult<List<Restaurante>>> RestaurantesByCategoria(int id)
         {
             return await this.repo.FindRestauranteOnCategoriaAsync(id);
         }
