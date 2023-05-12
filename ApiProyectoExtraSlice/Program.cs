@@ -1,4 +1,5 @@
 using ApiProyectoExtraSlice.Data;
+using ApiProyectoExtraSlice.Helpers;
 using ApiProyectoExtraSlice.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -9,6 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 string connectioString = builder.Configuration.GetConnectionString("SqlAzure");
 builder.Services.AddTransient<RepositoryRestaurante>();
 builder.Services.AddDbContext<RestauranteContext>(options => options.UseSqlServer(connectioString));
+
+builder.Services.AddSingleton<HelperOAuthToken>();
+HelperOAuthToken helper = new HelperOAuthToken(builder.Configuration);
+builder.Services.AddAuthentication(helper.GetAuthenticationOptions()).AddJwtBearer(helper.GetJwtOptions());
+
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -39,6 +46,8 @@ app.UseSwaggerUI(options =>
 //}
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
