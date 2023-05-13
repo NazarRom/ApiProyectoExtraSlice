@@ -1,16 +1,32 @@
 using ApiProyectoExtraSlice.Data;
 using ApiProyectoExtraSlice.Helpers;
 using ApiProyectoExtraSlice.Repository;
+using Azure.Security.KeyVault.Secrets;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Azure;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-string connectioString = builder.Configuration.GetConnectionString("SqlAzure");
-builder.Services.AddTransient<RepositoryRestaurante>();
-builder.Services.AddDbContext<RestauranteContext>(options => options.UseSqlServer(connectioString));
 
+builder.Services.AddAzureClients(factory =>
+{
+    factory.AddSecretClient(builder.Configuration.GetSection("KeyVault"));
+});
+
+//DEBEMOS RECUPERAR, DE FORMA EXPLICITA EL SECRETCLIENT INYECTADO
+SecretClient secretClient = builder.Services.BuildServiceProvider().GetService<SecretClient>();
+KeyVaultSecret keyVaultSecret = await secretClient.GetSecretAsync("connectionstring");
+// Add services to the container.
+string connectionString = keyVaultSecret.Value;
+
+builder.Services.AddDbContext<RestauranteContext>(options => options.UseSqlServer(connectionString));
+
+
+
+
+builder.Services.AddTransient<RepositoryRestaurante>();
 builder.Services.AddSingleton<HelperOAuthToken>();
 HelperOAuthToken helper = new HelperOAuthToken(builder.Configuration);
 builder.Services.AddAuthentication(helper.GetAuthenticationOptions()).AddJwtBearer(helper.GetJwtOptions());
