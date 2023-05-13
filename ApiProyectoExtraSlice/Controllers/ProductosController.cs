@@ -53,7 +53,7 @@ namespace ApiProyectoExtraSlice.Controllers
 
         //para encontrar un producto en concreto
         [HttpGet]
-        [Route("[action]")]
+        [Route("[action]/{id}")]
         public async Task<ActionResult<Producto>> FindProducto(int id)
         {
             return await this.repo.FindProductoAsync(id);

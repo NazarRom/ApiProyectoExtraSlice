@@ -19,7 +19,7 @@ namespace ApiProyectoExtraSlice.Controllers
         //todos los restaurantes
         [HttpGet]
         [Route("[action]")]
-        public async Task<ActionResult<List<Restaurante>>> GetAllResuartentes()
+        public async Task<ActionResult<List<Restaurante>>> GetAllRestaurantes()
         {
             return await this.repo.GetRestaurantesAsync();
         }
@@ -27,7 +27,7 @@ namespace ApiProyectoExtraSlice.Controllers
         //para encontrar un restaurante en concreto
         [HttpGet]
         [Route("[action]/{id}")]
-        public async Task<ActionResult<Restaurante>> GetOneResuartente(int id)
+        public async Task<ActionResult<Restaurante>> GetOneRestaurante(int id)
         {
             return await this.repo.FindRestauranteAsync(id);
         }
@@ -51,7 +51,7 @@ namespace ApiProyectoExtraSlice.Controllers
         //Restaurante por nombre
         [HttpGet]
         [Route("[action]/{name}")]
-        public async Task<ActionResult<Restaurante>> RestaurantesByName(string name)
+        public async Task<ActionResult<Restaurante>> RestauranteByName(string name)
         {
             return await this.repo.GetRestauranteByNameAsync(name);
         }
