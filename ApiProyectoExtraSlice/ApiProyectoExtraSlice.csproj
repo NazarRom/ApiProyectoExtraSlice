@@ -15,7 +15,7 @@
     <PackageReference Include="Microsoft.Extensions.Azure" Version="1.6.3" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.10.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="NugetExtraSlice" Version="1.1.2" />
+    <PackageReference Include="NugetExtraSlice" Version="1.1.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
