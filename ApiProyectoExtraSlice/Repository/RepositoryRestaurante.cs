@@ -1,6 +1,6 @@
 ﻿using ApiProyectoExtraSlice.Data;
 using ApiProyectoExtraSlice.Helpers;
-using ApiProyectoExtraSlice.Models;
+using ExtraSliceV2.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 

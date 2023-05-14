@@ -1,4 +1,4 @@
-﻿using ApiProyectoExtraSlice.Models;
+﻿using ExtraSliceV2.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiProyectoExtraSlice.Data
