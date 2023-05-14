@@ -21,6 +21,7 @@ KeyVaultSecret keyVaultSecret = await secretClient.GetSecretAsync("connectionstr
 // Add services to the container.
 string connectionString = keyVaultSecret.Value;
 
+
 builder.Services.AddDbContext<RestauranteContext>(options => options.UseSqlServer(connectionString));
 
 
