@@ -1,9 +1,10 @@
 ﻿using ApiProyectoExtraSlice.Helpers;
-using ApiProyectoExtraSlice.Models;
 using ApiProyectoExtraSlice.Repository;
+using ExtraSliceV2.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using MVCApiExtraSlice.Models;
 using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;

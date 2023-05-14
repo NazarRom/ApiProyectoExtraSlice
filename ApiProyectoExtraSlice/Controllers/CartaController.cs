@@ -1,7 +1,8 @@
-﻿using ApiProyectoExtraSlice.Models;
-using ApiProyectoExtraSlice.Repository;
+﻿using ApiProyectoExtraSlice.Repository;
+using ExtraSliceV2.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MVCApiExtraSlice.Models;
 using Newtonsoft.Json;
 using System.Security.Claims;
 
